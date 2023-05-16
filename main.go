@@ -23,8 +23,10 @@ func main() {
 		return worker3(ctx)
 	})
 	mgerr := mg.Wait()
-	for _, err := range mgerr.Errors {
-		fmt.Println(err.Error())
+	if mgerr != nil {
+		for _, err := range mgerr.Errors {
+			fmt.Println(err.Error())
+		}
 	}
 }
 
